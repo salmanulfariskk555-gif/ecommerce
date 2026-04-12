@@ -1,1224 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>upplies — Authentic Handloom, Spices & Herbal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Gokul & Aparna </title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-
-  <!-- Tailwind CDN with custom config -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['Cormorant Garamond', 'serif'],
-            body:    ['Jost', 'sans-serif'],
-          },
-          colors: {
-            stone:  { 50:'#faf9f7',100:'#f5f0e8',200:'#ece3d4',300:'#ddd0b8',400:'#c8b48e',500:'#b09060',600:'#8c6e42',700:'#6b5030',800:'#4a3520',900:'#2d1f10' },
-            forest: { 50:'#f0f7f4',100:'#d8ede5',200:'#a8d4c0',300:'#6fb89a',400:'#3d9a78',500:'#1e7a5a',600:'#165e44',700:'#0f4530',800:'#0a2e1f',900:'#051810' },
-            spice:  { 50:'#fdf5f0',100:'#fae4d4',200:'#f4c09e',300:'#ec9566',400:'#e06a32',500:'#c44e1a',600:'#9e3c12',700:'#7a2c0c',800:'#561e07',900:'#331104' },
-            gold:   { 50:'#fdfaf0',100:'#faf0d0',200:'#f4db8a',300:'#e8c14a',400:'#d4a020',500:'#b5820e',600:'#8f6408',700:'#6a4905',800:'#463003',900:'#241802' },
-          },
-          animation: {
-            'fade-in':    'fadeIn 0.4s ease-out',
-            'slide-up':   'slideUp 0.4s ease-out',
-            'slide-right':'slideRight 0.35s ease-out',
-          },
-          keyframes: {
-            fadeIn:     { from:{ opacity:'0' },                              to:{ opacity:'1' } },
-            slideUp:    { from:{ opacity:'0', transform:'translateY(24px)' }, to:{ opacity:'1', transform:'translateY(0)' } },
-            slideRight: { from:{ transform:'translateX(100%)' },              to:{ transform:'translateX(0)' } },
-          }
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --bg-color: #fdfdfb;
+            --text-blue: #54627b;
+            --accent-pink: #f8d7da;
+            --dot-color: #d1d1d1;
         }
-      }
-    }
-  </script>
 
-  <!-- Custom styles -->
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            /* Creating the dot-grid background from your image */
+            background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-blue);
+            display: flex;
+            justify-content: center;
+        }
 
-  <!-- All custom styles inlined for single-file GitHub Pages hosting -->
-  <style>
-/* ============================================================
-   KeralaOrigins — style.css
-   All custom CSS. Tailwind CDN is loaded in index.html.
-   ============================================================ */
+        .container {
+            width: 100%;
+            max-width: 450px;
+            min-height: 100vh;
+            padding: 40px 20px 100px 20px;
+            position: relative;
+            box-sizing: border-box;
+        }
 
-/* ── BASE ─────────────────────────────────────────────────── */
-body {
-  font-family: 'Jost', sans-serif;
-  background: #faf9f7;
-  color: #1a1a1a;
-  -webkit-tap-highlight-color: transparent;
-}
-.font-display { font-family: 'Cormorant Garamond', serif; }
+        /* Page Transitions */
+        .page {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.6s ease-out;
+        }
 
-/* ── SCROLLBAR ────────────────────────────────────────────── */
-::-webkit-scrollbar       { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #d0c8b8; border-radius: 2px; }
-.hide-scrollbar                    { scrollbar-width: none; }
-.hide-scrollbar::-webkit-scrollbar { display: none; }
+        .page.active {
+            display: block;
+        }
 
-/* ── CATEGORY BANNER GRADIENTS ────────────────────────────── */
-.banner-women { background: linear-gradient(135deg, #2d1a0e 0%, #6b3a1f 45%, #c8963e 100%); }
-.banner-men   { background: linear-gradient(135deg, #0f2318 0%, #1e4d32 45%, #3a8a5a 100%); }
-.banner-spice { background: linear-gradient(135deg, #2d0e0e 0%, #6b1e1e 45%, #c84b1e 100%); }
-.banner-herb  { background: linear-gradient(135deg, #0e2218 0%, #1e4d30 45%, #4a9a3a 100%); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-/* ── PRODUCT IMAGE PLACEHOLDER GRADIENTS ──────────────────── */
-.img-saree { background: linear-gradient(145deg, #f5e6c8 0%, #e8c87a 50%, #c8963e 100%); }
-.img-men   { background: linear-gradient(145deg, #d4ede0 0%, #8acba8 50%, #3a8a5a 100%); }
-.img-spice { background: linear-gradient(145deg, #fde8d8 0%, #f0a878 50%, #c84b1e 100%); }
-.img-herb  { background: linear-gradient(145deg, #d8edd8 0%, #88c888 50%, #2d7a2d 100%); }
+        /* Typography */
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 0;
+            color: var(--text-blue);
+        }
 
-/* ── PAGE SYSTEM ──────────────────────────────────────────── */
-.page        { display: none; }
-.page.active { display: block; animation: fadeIn 0.3s ease-out; }
+        .subtitle {
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
 
-/* ── PRODUCT IMAGE FRAME ──────────────────────────────────── */
-.prod-img-frame {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5rem;
-  line-height: 1;
-}
+        /* Polaroid Styling */
+        .polaroid {
+            background: white;
+            padding: 15px 15px 35px 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: inline-block;
+            margin: 30px 0;
+            position: relative;
+            width: 90%;
+            transition: transform 0.3s ease;
+        }
 
-/* ── CART SIDEBAR ─────────────────────────────────────────── */
-#cart-overlay { transition: opacity 0.3s ease; }
-#cart-panel   { transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+        .main-photo {
+            transform: rotate(-2deg);
+        }
 
-/* ── TOAST ────────────────────────────────────────────────── */
-#toast { transition: all 0.3s ease; }
+        .polaroid img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
 
-/* ── FORM INPUTS ──────────────────────────────────────────── */
-input:focus { outline: none; border-color: #1e7a5a !important; }
+        .polaroid .caption {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            margin-top: 15px;
+            color: var(--text-blue);
+        }
 
-/* ── KEYFRAMES ────────────────────────────────────────────── */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideRight {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(0); }
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.15); }
-}
+        /* Washi Tape Effect */
+        .tape {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 35px;
+            background: var(--accent-pink);
+            opacity: 0.8;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
 
-/* ── ANIMATION UTILITIES ──────────────────────────────────── */
-.anim-fade  { animation: fadeIn     0.3s ease-out; }
-.anim-up    { animation: slideUp    0.4s ease-out; }
-.anim-right { animation: slideRight 0.35s ease-out; }
-.pulse      { animation: pulse      0.4s ease; }
+        .intro-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 20px;
+            padding: 0 10px;
+        }
 
-/* ── FILTER CHIPS ─────────────────────────────────────────── */
-.filter-chip {
-  white-space: nowrap;
-  font-size: 11px;
-  padding: 5px 13px;
-  border-radius: 20px;
-  border: 1px solid #e0d8cc;
-  background: #fff;
-  color: #666;
-  cursor: pointer;
-  font-family: 'Jost', sans-serif;
-  font-weight: 400;
-  transition: all 0.2s;
-}
-.filter-chip.active {
-  background: #1a1a1a;
-  color: #fff;
-  border-color: #1a1a1a;
-  font-weight: 500;
-}
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
 
-/* ── PAYMENT TABS ─────────────────────────────────────────── */
-.pay-tab {
-  flex: 1;
-  padding: 8px 0;
-  font-size: 11px;
-  font-weight: 500;
-  border-radius: 8px;
-  border: 1px solid #e8e0d0;
-  background: #fff;
-  color: #888;
-  cursor: pointer;
-  font-family: 'Jost', sans-serif;
-  transition: all 0.2s;
-}
-.pay-tab.active {
-  background: #1a1a1a;
-  color: #fff;
-  border-color: #1a1a1a;
-}
+        .gallery-grid .polaroid {
+            width: 100%;
+            padding: 8px 8px 15px 8px;
+            margin: 0;
+            transform: rotate(0deg);
+        }
 
-/* ── UPI APP TILES ────────────────────────────────────────── */
-.upi-app {
-  flex: 1;
-  border: 1px solid #e8e0d0;
-  border-radius: 10px;
-  padding: 8px 4px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.upi-app:hover,
-.upi-app.selected {
-  border-color: #1e7a5a;
-  background: #f0f7f4;
-}
+        .gallery-grid .polaroid .caption {
+            font-size: 1rem;
+            margin-top: 8px;
+        }
 
-/* ── NETBANKING LIST ITEMS ────────────────────────────────── */
-.net-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 11px 13px;
-  border: 1px solid #e8e0d0;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-bottom: 8px;
-  font-size: 13px;
-  transition: all 0.15s;
-}
-.net-item:hover {
-  border-color: #1e7a5a;
-  background: #f0f7f4;
-}
+        /* Letter Styling */
+        .lined-paper {
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 40px 30px;
+            text-align: left;
+            position: relative;
+            line-height: 2.2;
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            /* Creating the notebook lines */
+            background-image: linear-gradient(#e1e1e1 1px, transparent 1px);
+            background-size: 100% 2.2em;
+            margin-top: 20px;
+        }
 
-/* ── PRODUCT CARDS ────────────────────────────────────────── */
-.prod-card {
-  background: #fff;
-  border-radius: 14px;
-  border: 1px solid #f0e8e0;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.prod-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-  </style>
+        .red-line {
+            position: absolute;
+            left: 25px;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background: rgba(255, 0, 0, 0.15);
+        }
 
+        /* Navigation Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 12px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 25px;
+            z-index: 100;
+        }
+
+        .nav-item {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #ccc;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-item.active {
+            color: #54627b;
+        }
+
+        .nav-item.active::after {
+            content: '•';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ff8a8a;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
+<body>
 
-<body class="min-h-screen">
-
-<!-- ═══════════════════════════════════════════════════════════
-     HEADER — sticky, always visible
-═══════════════════════════════════════════════════════════ -->
-<header class="sticky top-0 z-50 bg-white border-b border-stone-200 shadow-sm">
-  <div class="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
-
-   <button onclick="goHome()" class="flex items-center gap-3 group transition-all duration-300 focus:outline-none">
-  <div class="h-11 w-11 rounded-full overflow-hidden border-2 border-stone-100 shadow-sm group-hover:border-forest-600 transition-colors">
-   <a href="https://freeimage.host/i/qXEVg71"><img src="https://iili.io/qXEVg71.md.jpg" alt="qXEVg71.md.jpg" border="0"></a>
-         alt="Uppilies Logo"
-         class="h-full w-full object-cover shadow-inner">
-  </div>
-
-  <div class="flex flex-col items-start leading-none">
-    <span class="font-display text-2xl font-bold tracking-tight text-stone-900 group-hover:text-forest-700 transition-colors">
-      Uppilies<span class="text-forest-600">.</span>
-    </span>
-    <span class="text-[8px] tracking-[0.2em] uppercase text-stone-400 font-body font-medium">
-      Authentic · Handcrafted
-    </span>
-  </div>
-</button>
-    <!-- Nav icons -->
-    <div class="flex items-center gap-3">
-      <button onclick="goHome()" id="homeBtn" class="hidden text-stone-500 hover:text-stone-800 transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/>
-        </svg>
-      </button>
-      <button onclick="openSearch()" class="text-stone-500 hover:text-stone-800 transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <circle cx="11" cy="11" r="7" stroke-width="1.5"/>
-          <path d="m16.5 16.5 3.5 3.5" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <button onclick="openWishlist()" class="text-stone-500 hover:text-stone-800 transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z"/>
-        </svg>
-      </button>
-      <button onclick="toggleCart()" class="relative text-stone-500 hover:text-stone-800 transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-        </svg>
-        <span id="cart-badge"
-          class="hidden absolute -top-1.5 -right-1.5 bg-spice-500 text-white text-[9px] font-semibold w-4 h-4 rounded-full flex items-center justify-center">
-          0
-        </span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Breadcrumb -->
-  <div id="breadcrumb" class="hidden px-4 pb-2 max-w-lg mx-auto">
-    <div class="flex items-center gap-1.5 text-xs text-stone-400 font-body">
-      <button onclick="goHome()" class="hover:text-forest-600 transition-colors">Home</button>
-      <span id="bc-arrow1" class="hidden">›</span>
-      <span id="bc-cat"    class="hidden text-stone-600"></span>
-      <span id="bc-arrow2" class="hidden">›</span>
-      <span id="bc-prod"   class="hidden text-stone-800 font-medium"></span>
-    </div>
-  </div>
-</header>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     PAGE: HOME
-═══════════════════════════════════════════════════════════ -->
-<div id="page-home" class="page active max-w-7xl mx-auto">
-
-  <!-- Hero banner -->
-  <div class="relative overflow-hidden bg-stone-900 px-6 py-8">
-    <div class="absolute inset-0 opacity-10"
-      style="background-image:repeating-linear-gradient(45deg,#c8963e 0,#c8963e 1px,transparent 0,transparent 50%);background-size:14px 14px;"></div>
-    <div class="relative z-10">
-      <p class="text-[10px] tracking-[0.3em] uppercase text-gold-300 font-body font-light mb-2">Straight from God's Own Country</p>
-      <h1 class="font-display text-4xl font-bold text-white leading-tight mb-3">
-        Woven threads.<br/><em>Timeless craft.</em>
-      </h1>
-      <p class="text-stone-300 text-sm font-body font-light leading-relaxed mb-5">
-        Handloom sarees, pure Kerala spices &amp; certified herbal products — curated direct from artisans.
-      </p>
-      <button onclick="scrollToCats()"
-        class="bg-gold-400 hover:bg-gold-300 text-stone-900 text-xs font-semibold tracking-widest uppercase px-6 py-3 transition-colors">
-        Explore Collection →
-      </button>
-    </div>
-  </div>
-
-  <!-- Trust badges -->
-  <div class="grid grid-cols-3 border-b border-stone-200">
-    <div class="py-3 px-2 text-center border-r border-stone-200">
-      <div class="text-lg mb-0.5">🏺</div>
-      <p class="text-[10px] text-stone-500 font-light leading-tight">Artisan<br/>Crafted</p>
-    </div>
-    <div class="py-3 px-2 text-center border-r border-stone-200">
-      <div class="text-lg mb-0.5">🚚</div>
-      <p class="text-[10px] text-stone-500 font-light leading-tight">Free Ship<br/>₹999+</p>
-    </div>
-    <div class="py-3 px-2 text-center">
-      <div class="text-lg mb-0.5">🔒</div>
-      <p class="text-[10px] text-stone-500 font-light leading-tight">Secure<br/>Payments</p>
-    </div>
-  </div>
-
-  <!-- Category banners -->
-  <div id="cat-section" class="px-4 py-6">
-    <p class="text-[10px] tracking-[0.25em] uppercase text-stone-400 mb-4 font-body">Shop by Category</p>
-
-    <!-- Handloom Women — large -->
-    <div onclick="showCategory('women')"
-      class="banner-women cursor-pointer rounded-xl overflow-hidden mb-3 relative" style="height:200px;">
-      <div class="absolute inset-0 flex flex-col justify-end p-5">
-        <div class="absolute top-4 right-4 text-6xl opacity-25">🥻</div>
-        <p class="text-[9px] tracking-[0.25em] uppercase text-yellow-200/70 mb-1">Handloom Collection</p>
-        <h2 class="font-display text-3xl font-bold text-white leading-none mb-1">Women's</h2>
-        <p class="text-white/70 text-xs font-light mb-3">Bridal · Pattu · Tissue · Cotton Sarees &amp; more</p>
-        <span class="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm text-white text-[10px] tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/20 w-fit">
-          10 Products →
-        </span>
-      </div>
-    </div>
-
-    <!-- Handloom Men + Spices — side by side -->
-    <div class="grid grid-cols-2 gap-3 mb-3">
-      <div onclick="showCategory('men')"
-        class="banner-men cursor-pointer rounded-xl overflow-hidden relative" style="height:160px;">
-        <div class="absolute inset-0 flex flex-col justify-end p-4">
-          <div class="absolute top-3 right-3 text-4xl opacity-25">👔</div>
-          <p class="text-[9px] tracking-[0.2em] uppercase text-green-200/70 mb-0.5">Handloom</p>
-          <h2 class="font-display text-2xl font-bold text-white leading-none mb-0.5">Men's</h2>
-          <p class="text-white/60 text-[10px] font-light mb-2">Kasavu &amp; Kara Mundu</p>
-          <span class="text-white/80 text-[9px] uppercase tracking-wider">3 Products →</span>
-        </div>
-      </div>
-      <div onclick="showCategory('spices')"
-        class="banner-spice cursor-pointer rounded-xl overflow-hidden relative" style="height:160px;">
-        <div class="absolute inset-0 flex flex-col justify-end p-4">
-          <div class="absolute top-3 right-3 text-4xl opacity-25">🌶️</div>
-          <p class="text-[9px] tracking-[0.2em] uppercase text-orange-200/70 mb-0.5">Pure Kerala</p>
-          <h2 class="font-display text-2xl font-bold text-white leading-none mb-0.5">Spices</h2>
-          <p class="text-white/60 text-[10px] font-light mb-2">Pepper · Cardamom · Clove</p>
-          <span class="text-white/80 text-[9px] uppercase tracking-wider">6 Spices →</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Herbal — large -->
-    <div onclick="showCategory('herbal')"
-      class="banner-herb cursor-pointer rounded-xl overflow-hidden relative" style="height:160px;">
-      <div class="absolute inset-0 flex flex-col justify-end p-5">
-        <div class="absolute top-4 right-4 text-5xl opacity-25">🌿</div>
-        <p class="text-[9px] tracking-[0.25em] uppercase text-green-200/70 mb-1">Natural &amp; Certified</p>
-        <h2 class="font-display text-3xl font-bold text-white leading-none mb-1">Herbal Products</h2>
-        <p class="text-white/70 text-xs font-light mb-3">Soaps · Oils · Cosmetics · Health Care</p>
-        <span class="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm text-white text-[10px] tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/20 w-fit">
-          8 Products →
-        </span>
-      </div>
-    </div>
-  </div><!-- /cat-section -->
-
-  <!-- Testimonials -->
-  <div class="bg-stone-900 px-5 py-6 mx-4 mb-6 rounded-xl">
-    <p class="text-[9px] tracking-[0.25em] uppercase text-gold-300 mb-3">What Our Customers Say</p>
-    <div class="space-y-3" id="testimonials-home"></div>
-  </div>
-
-  <!-- Footer -->
-  <div class="border-t border-stone-200 px-4 py-6 text-center">
-    <p class="font-display text-lg font-semibold text-stone-700 mb-1">KeralaOrigins</p>
-    <p class="text-xs text-stone-400 font-light mb-3">Authentic handcrafted products from Kerala, India</p>
-    <div class="flex justify-center gap-4 text-xs text-stone-400">
-      <span>🌿 100% Natural</span>
-      <span>🏺 Artisan Made</span>
-      <span>📦 Pan-India Delivery</span>
-    </div>
-  </div>
-</div><!-- /page-home -->
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     PAGE: CATEGORY LISTING
-═══════════════════════════════════════════════════════════ -->
-<div id="page-category" class="page max-w-7xl mx-auto pb-20">
-
-  <!-- Category hero -->
-  <div id="cat-hero" class="relative overflow-hidden" style="height:140px;">
-    <div id="cat-hero-inner" class="absolute inset-0 flex flex-col justify-end p-5">
-      <p  id="cat-hero-sub"   class="text-[9px] tracking-[0.25em] uppercase text-white/60 mb-1"></p>
-      <h2 id="cat-hero-title" class="font-display text-3xl font-bold text-white mb-1"></h2>
-      <p  id="cat-hero-desc"  class="text-white/70 text-xs font-light"></p>
-    </div>
-  </div>
-
-  <!-- Filter chips -->
-  <div id="filter-chips"
-    class="flex gap-2 overflow-x-auto px-4 py-3 border-b border-stone-100 hide-scrollbar">
-  </div>
-
-  <!-- Sort bar -->
-  <div class="flex items-center justify-between px-4 py-2 border-b border-stone-100">
-    <p id="prod-count-label" class="text-xs text-stone-400 font-light">0 products</p>
-    <select id="sort-select" onchange="sortProducts()"
-      class="text-xs text-stone-600 border-none bg-transparent font-body cursor-pointer">
-      <option value="default">Featured</option>
-      <option value="price-asc">Price: Low to High</option>
-      <option value="price-desc">Price: High to Low</option>
-    </select>
-  </div>
-
-  <!-- Product grid -->
-<div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6 p-4"></div>
-</div><!-- /page-category -->
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     PAGE: PRODUCT DETAIL
-═══════════════════════════════════════════════════════════ -->
-<div id="page-product" class="page max-w-7xl mx-auto pb-24">
-
-  <!-- Product image -->
-  <div id="prod-detail-img" class="w-full prod-img-frame" style="height:300px;"></div>
-
-  <div class="px-5 pt-5 pb-4">
-    <!-- Name + wishlist -->
-    <div class="flex items-start justify-between gap-2 mb-1">
-      <div>
-        <p id="prod-detail-cat" class="text-[10px] tracking-[0.2em] uppercase text-stone-400 mb-1"></p>
-        <h1 id="prod-detail-name" class="font-display text-3xl font-bold text-stone-900 leading-tight"></h1>
-      </div>
-      <button id="wish-btn" onclick="toggleWishlistItem()"
-        class="mt-1 p-2 rounded-full border border-stone-200 text-stone-400 hover:text-red-400 hover:border-red-200 transition-colors flex-shrink-0">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Stars -->
-    <div class="flex items-center gap-1.5 mb-3">
-      <div class="flex gap-0.5 text-gold-400 text-xs" id="prod-stars"></div>
-      <span class="text-xs text-stone-400" id="prod-reviews"></span>
-    </div>
-
-    <!-- Price -->
-    <div class="flex items-baseline gap-2 mb-4">
-      <span id="prod-detail-price" class="font-display text-3xl font-bold text-stone-900"></span>
-      <span id="prod-detail-orig"  class="text-sm text-stone-400 line-through"></span>
-      <span id="prod-detail-off"   class="text-xs bg-spice-50 text-spice-600 px-2 py-0.5 rounded-full font-medium"></span>
-    </div>
-
-    <!-- Description -->
-    <div class="border-t border-stone-100 pt-4 mb-4">
-      <p class="text-xs font-semibold tracking-wider uppercase text-stone-500 mb-2">Description</p>
-      <p id="prod-detail-desc" class="text-sm text-stone-600 font-light leading-relaxed"></p>
-    </div>
-
-    <!-- Highlights -->
-    <div id="prod-highlights" class="grid grid-cols-3 gap-2 mb-5"></div>
-
-    <!-- Quantity selector -->
-    <div class="flex items-center gap-4 mb-5">
-      <p class="text-xs font-medium tracking-wider uppercase text-stone-500">Qty</p>
-      <div class="flex items-center border border-stone-200 rounded-lg overflow-hidden">
-        <button onclick="changeDetailQty(-1)"
-          class="w-9 h-9 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-colors text-lg font-light">−</button>
-        <span id="detail-qty"
-          class="w-9 h-9 flex items-center justify-center text-sm font-medium border-x border-stone-200">1</span>
-        <button onclick="changeDetailQty(1)"
-          class="w-9 h-9 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-colors text-lg font-light">+</button>
-      </div>
-    </div>
-
-    <!-- CTA buttons -->
-    <div class="grid grid-cols-2 gap-3 mb-6">
-      <button id="add-to-cart-btn" onclick="addToCartFromDetail()"
-        class="border border-forest-600 text-forest-700 text-sm font-medium py-3.5 rounded-lg hover:bg-forest-50 transition-colors tracking-wide">
-        Add to Cart
-      </button>
-      <button onclick="buyNowFromDetail()"
-        class="bg-stone-900 hover:bg-stone-800 text-white text-sm font-medium py-3.5 rounded-lg transition-colors tracking-wide">
-        Buy Now
-      </button>
-    </div>
-
-    <!-- Delivery info -->
-    <div class="bg-stone-50 rounded-xl p-4 space-y-2.5">
-      <div class="flex items-center gap-2.5 text-xs text-stone-600"><span class="text-base">🚚</span>Free delivery on orders above ₹999 · 5–7 working days</div>
-      <div class="flex items-center gap-2.5 text-xs text-stone-600"><span class="text-base">↩️</span>Easy 7-day returns for eligible products</div>
-      <div class="flex items-center gap-2.5 text-xs text-stone-600"><span class="text-base">🏺</span>Directly sourced from Kerala artisans &amp; farmers</div>
-    </div>
-  </div>
-</div><!-- /page-product -->
-
-
-<div id="page-checkout" class="page max-w-7xl mx-auto pb-8">
-  <div class="px-4 py-10">
-    <h2 class="font-display text-3xl font-bold text-stone-900 mb-1">Checkout</h2>
-    <p class="text-xs text-stone-400 font-light mb-8">🔒 Secured with 256-bit SSL encryption</p>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-
-      <div class="space-y-6">
-        <div class="bg-white border border-stone-200 rounded-xl p-5 shadow-sm">
-          <p class="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-4">Delivery Address</p>
-          <div class="grid grid-cols-2 gap-3">
-            <input type="text" placeholder="First Name"    class="border border-stone-200 rounded-lg px-3 py-3 text-sm font-body placeholder-stone-300 focus:ring-1 focus:ring-stone-900 outline-none"/>
-            <input type="text" placeholder="Last Name"     class="border border-stone-200 rounded-lg px-3 py-3 text-sm font-body placeholder-stone-300 focus:ring-1 focus:ring-stone-900 outline-none"/>
-            <input type="text" placeholder="Phone Number"  class="col-span-2 border border-stone-200 rounded-lg px-3 py-3 text-sm font-body placeholder-stone-300 focus:ring-1 focus:ring-stone-900 outline-none"/>
-            <input type="text" placeholder="Address Line 1" class="col-span-2 border border-stone-200 rounded-lg px-3 py-3 text-sm font-body placeholder-stone-300 focus:ring-1 focus:ring-stone-900 outline-none"/>
-            <input type="text" placeholder="City"          class="border border-stone-200 rounded-lg px-3 py-3 text-sm font-body placeholder-stone-300 focus:ring-1 focus:ring-stone-900 outline-none"/>
-            <input type="text" placeholder="PIN Code"      class="border border-stone-200 rounded-lg px-3 py-3 text-sm font-body placeholder-stone-300 focus:ring-1 focus:ring-stone-900 outline-none"/>
-          </div>
-        </div>
-
-        <div class="bg-white border border-stone-200 rounded-xl p-5 shadow-sm">
-          <p class="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-4">Payment Method</p>
-          <div class="flex gap-2 mb-6">
-            <button onclick="switchPayTab('upi',this)"    class="pay-tab active">UPI</button>
-            <button onclick="switchPayTab('card',this)"   class="pay-tab">Cards</button>
-            <button onclick="switchPayTab('netbank',this)"class="pay-tab">Netbanking</button>
-            <button onclick="switchPayTab('cod',this)"    class="pay-tab">COD</button>
-          </div>
-
-          <div id="panel-upi">
-            <div class="flex gap-2 mb-4">
-              <div onclick="selUpi(this)" class="upi-app"><div class="text-xl mb-0.5">🟢</div><p class="text-[9px] text-stone-500">GPay</p></div>
-              <div onclick="selUpi(this)" class="upi-app"><div class="text-xl mb-0.5">🔵</div><p class="text-[9px] text-stone-500">PhonePe</p></div>
-              <div onclick="selUpi(this)" class="upi-app"><div class="text-xl mb-0.5">🟣</div><p class="text-[9px] text-stone-500">Paytm</p></div>
-              <div onclick="selUpi(this)" class="upi-app"><div class="text-xl mb-0.5">🔴</div><p class="text-[9px] text-stone-500">BHIM</p></div>
+    <div class="container">
+        
+        <section id="home" class="page active">
+            <h1>Our Story</h1>
+            <p class="subtitle">Gokul & Aparna</p>
+            
+            <div class="polaroid main-photo">
+                <div class="tape"></div>
+                <img src="https://i.postimg.cc/vmzqh9mD/Whats-App-Image-2026-04-11-at-8-36-31-PM.jpg" alt="Main Couple Photo">
+                <p class="caption">You & Me</p>
             </div>
-            <input type="text" placeholder="yourname@upi" class="w-full border border-stone-200 rounded-lg px-3 py-3 text-sm"/>
-          </div>
 
-          <div id="panel-card" class="hidden">...</div>
-          <div id="panel-netbank" class="hidden">...</div>
-          <div id="panel-cod" class="hidden">...</div>
-        </div>
+            <div class="intro-text">
+                <p>Welcome to my digital scrapbook. A little collection of why you make my heart smile, Gokul.</p>
+                <p>👇 Use the menu below.</p>
+            </div>
+        </section>
 
-        <button onclick="confirmOrder()" class="w-full bg-stone-900 hover:bg-stone-800 text-white py-4 rounded-xl font-medium tracking-wider text-sm shadow-lg transition-all">
-          Place Order Securely 🔒
-        </button>
-      </div>
+        <section id="gallery" class="page">
+            <h1 style="font-size: 2.5rem;">Captured Moments</h1>
+            <div class="gallery-grid">
+                <div class="polaroid"><img src="https://i.postimg.cc/d1RyrmQm/Whats-App-Image-2026-04-11-at-8-41-24-PM.jpg">unexpected</p></div>
+                <div class="polaroid"><img src="https://i.postimg.cc/8sQ99GgT/Whats-App-Image-2026-04-11-at-8-50-50-PM.jpg"><p class="caption">with u 🥺</p></div>
+                <div class="polaroid"><img src="https://i.postimg.cc/NGmc8CcG/Whats-App-Image-2026-04-11-at-8-42-12-PM-(1).jpg"><p class="caption"> First Rose </p></div>
+                <div class="polaroid"><img src="https://i.postimg.cc/Bnt7ptKF/Whats-App-Image-2026-04-11-at-8-42-13-PM.jpg"><p class="caption">Junior 🌚 </p></div>
+                <div class="polaroid"><img src="https://i.postimg.cc/qqz6SfXW/Whats-App-Image-2026-04-11-at-8-42-13-PM-(1).jpg"><p class="caption">Madam 😌</p></div>
+                <div class="polaroid"><img src="https://i.postimg.cc/vmzqh9mD/Whats-App-Image-2026-04-11-at-8-36-31-PM.jpg"><p class="caption">Junior 🤍 senior</p></div>
+            </div>
+        </section>
 
-      <div class="lg:sticky lg:top-24">
-        <div class="bg-stone-50 border border-stone-200 rounded-xl p-6">
-          <p class="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-4">Order Summary</p>
-          <div id="checkout-items" class="space-y-4 mb-4 max-h-96 overflow-y-auto pr-2"></div>
-          <div class="border-t border-stone-200 pt-4 space-y-2">
-            <div class="flex justify-between text-sm text-stone-600"><span>Subtotal</span><span id="co-subtotal"></span></div>
-            <div class="flex justify-between text-sm text-stone-600"><span>Shipping</span><span id="co-shipping" class="text-forest-600 font-medium"></span></div>
-            <div class="flex justify-between text-lg font-bold text-stone-900 pt-4 border-t border-stone-200"><span>Total</span><span id="co-total"></span></div>
-          </div>
-        </div>
-      </div>
+        <section id="letter" class="page">
+            <h1 style="font-size: 2.5rem;">My Heart to Yours</h1>
+            <div class="lined-paper">
+                <div class="red-line"></div>
+                <div class="letter-content">
+                    Dear Appu,<br><br>
+                    Thank you for falling for me ❤️
+I never knew love could feel this beautiful until you came into my life 💫
+You mean more to me than words can ever explain 🥰!<br><br>
+                    Love always,<br>
+                    Gokul
+                </div>
+            </div>
+        </section>
+
+        <nav class="bottom-nav">
+            <button onclick="showPage('home')" class="nav-item active" id="btn-home">🏠</button>
+            <button onclick="showPage('gallery')" class="nav-item" id="btn-gallery">🖼️</button>
+            <button onclick="showPage('letter')" class="nav-item" id="btn-letter">✉️</button>
+            
+        </nav>
 
     </div>
-  </div>
-</div>
 
-<div id="page-success" class="page max-w-7xl mx-auto">
-  <div class="flex flex-col items-center justify-center min-h-[85vh] px-6 text-center max-w-2xl mx-auto">
-    <div class="w-24 h-24 bg-forest-50 rounded-full flex items-center justify-center mb-6 text-5xl animate-bounce">✅</div>
-    <h2 class="font-display text-4xl font-bold text-stone-900 mb-3">Order Confirmed!</h2>
-    <p class="text-sm text-stone-500 font-light mb-6">Thank you for shopping with KeralaOrigins. Your support for local artisans means the world to us.</p>
-
-    <div class="bg-stone-100 px-6 py-3 rounded-full mb-8">
-      <p class="text-xs text-stone-600 font-mono tracking-widest" id="success-order-id">ORD-KO-000000</p>
-    </div>
-
-    <div class="bg-white border border-stone-200 rounded-2xl p-6 w-full mb-8 text-left space-y-4 shadow-sm">
-      <div class="flex items-start gap-4">
-        <span class="text-2xl mt-0.5">📦</span>
-        <div><p class="text-sm font-semibold text-stone-800">Delivery in 5–7 Days</p><p class="text-xs text-stone-400 font-light">Tracking details will be sent via SMS once dispatched.</p></div>
-      </div>
-      <div class="flex items-start gap-4">
-        <span class="text-2xl mt-0.5">💬</span>
-        <div><p class="text-sm font-semibold text-stone-800">WhatsApp Updates</p><p class="text-xs text-stone-400 font-light">Real-time order updates will be sent to your number.</p></div>
-      </div>
-    </div>
-
-    <div class="flex flex-col sm:flex-row gap-3 w-full">
-      <button onclick="goHome()" class="flex-1 bg-stone-900 text-white py-4 rounded-xl text-sm font-medium hover:bg-stone-800 transition-colors">
-        Continue Shopping →
-      </button>
-      <button onclick="showToast('Opening WhatsApp support...')" class="flex-1 border border-stone-200 text-stone-600 py-4 rounded-xl text-sm font-medium hover:bg-stone-50 transition-colors">
-        💬 Track on WhatsApp
-      </button>
-    </div>
-  </div>
-</div>
-  <script>
-/* ============================================================
-   KeralaOrigins — script.js
-   All product data, category rendering, cart logic,
-   product detail view, checkout & payment gateway UI.
-   ============================================================ */
-
-/* ══════════════════════════════════════════════════════════
-   PRODUCT DATA
-══════════════════════════════════════════════════════════ */
-const PRODUCTS = {
-  women: {
-    label: 'Handloom Women',
-    sub: 'Authentic Kerala Handloom',
-    desc: "Exquisite handwoven sarees crafted by Kerala's master weavers.",
-    heroBg: 'banner-women',
-    imgClass: 'img-saree',
-    items: [
-      { id:1,  name:'Bridal Saree',      cat:'Bridal',     emoji:'🥻', price:8999,  orig:14999, off:40, rating:4.9, reviews:124,
-        desc:"Magnificent hand-woven bridal saree with intricate gold zari work. Perfect for weddings and special occasions. Each piece takes 3–4 weeks to weave.",
-        highlights:['Pure Silk','Zari Work','Exclusive Design'] },
-      { id:2,  name:'Pattu Saree',       cat:'Silk',       emoji:'🥻', price:5499,  orig:8999,  off:39, rating:4.8, reviews:89,
-        desc:"Classic Kerala Pattu Saree with authentic kasavu border. Woven with pure mulberry silk for a rich, lustrous finish.",
-        highlights:['Pure Silk','Kasavu Border','Handwoven'] },
-      { id:3,  name:'Set Saree',         cat:'Traditional',emoji:'🥻', price:3299,  orig:5499,  off:40, rating:4.7, reviews:67,
-        desc:"Traditional Kerala Set Saree — a two-piece set of saree and blouse fabric, perfect for Onam, Vishu, and other festivals.",
-        highlights:['2-Piece Set','Festival Wear','Kerala Tradition'] },
-      { id:4,  name:'Tissue Saree',      cat:'Premium',    emoji:'🥻', price:4199,  orig:6999,  off:40, rating:4.8, reviews:53,
-        desc:"Lightweight and shimmering tissue silk saree with elegant golden sheen. A modern classic for parties and celebrations.",
-        highlights:['Tissue Silk','Golden Sheen','Lightweight'] },
-      { id:5,  name:'Set Mundu',         cat:'Traditional',emoji:'👘', price:1899,  orig:2999,  off:37, rating:4.6, reviews:45,
-        desc:"Authentic Kerala Set Mundu with traditional kasavu border. Worn during festivals and religious occasions.",
-        highlights:['Kasavu Border','100% Cotton','Festival Wear'] },
-      { id:6,  name:'Tissue Set Mundu',  cat:'Premium',    emoji:'👘', price:2499,  orig:3999,  off:38, rating:4.7, reviews:38,
-        desc:"Premium tissue Set Mundu with double kasavu border. Elegant combination of tradition and modernity.",
-        highlights:['Tissue Fabric','Double Kasavu','Premium'] },
-      { id:7,  name:'Davani',            cat:'Youth',      emoji:'👗', price:1299,  orig:1999,  off:35, rating:4.5, reviews:56,
-        desc:"Traditional Kerala Davani — a half saree style worn over a skirt. Perfect for young women during cultural festivals.",
-        highlights:['Half-Saree','Youth Wear','Cultural'] },
-      { id:8,  name:'Churidar Fabric',   cat:'Fabric',     emoji:'🧵', price:699,   orig:1099,  off:36, rating:4.4, reviews:72,
-        desc:"Premium Kerala cotton churidar fabric available in 2.5 metre length. Perfect for tailoring salwar-kameez and kurtas.",
-        highlights:['2.5 Metres','Pure Cotton','Tailoring Ready'] },
-      { id:9,  name:'Pattu Pavada',      cat:'Kids',       emoji:'👗', price:2799,  orig:4499,  off:38, rating:4.8, reviews:41,
-        desc:"Beautiful silk Pattu Pavada for girls. The traditional Kerala skirt-blouse set for festive occasions and temple visits.",
-        highlights:['Pure Silk','Girls 2–12 Yrs','Festival Wear'] },
-      { id:10, name:'Cotton Saree',      cat:'Daily Wear', emoji:'🥻', price:1599,  orig:2499,  off:36, rating:4.6, reviews:93,
-        desc:"Soft, breathable pure cotton saree perfect for daily wear. Hand-woven with subtle patterns, ideal for Kerala's tropical climate.",
-        highlights:['Pure Cotton','Daily Wear','Breathable'] },
-    ]
-  },
-
-  men: {
-    label: 'Handloom Men',
-    sub: 'Traditional Kerala Attire',
-    desc: "Timeless handwoven Kerala attire for the modern man.",
-    heroBg: 'banner-men',
-    imgClass: 'img-men',
-    items: [
-      { id:11, name:'Golden Kasavu', cat:'Traditional', emoji:'👔', price:2999, orig:4999, off:40, rating:4.9, reviews:78,
-        desc:"Iconic Kerala Golden Kasavu Mundu with hand-woven golden zari border. The traditional attire worn at weddings, Onam, and special occasions.",
-        highlights:['Golden Zari','Handwoven','Premium Cotton'] },
-      { id:12, name:'Silver Kasavu', cat:'Traditional', emoji:'👔', price:2799, orig:4599, off:39, rating:4.7, reviews:62,
-        desc:"Elegant Silver Kasavu Mundu with silver thread border. A refined, understated choice for religious and formal occasions.",
-        highlights:['Silver Thread','Fine Cotton','Formal Wear'] },
-      { id:13, name:'Kara Mundu',   cat:'Daily Wear',  emoji:'🩱', price:1499, orig:2499, off:40, rating:4.5, reviews:110,
-        desc:"Classic Kerala Kara Mundu in fine cotton with a traditional woven border. Comfortable for daily wear and casual occasions.",
-        highlights:['Fine Cotton','Daily Wear','Traditional'] },
-    ]
-  },
-
-  spices: {
-    label: 'Kerala Spices',
-    sub: 'Farm-Fresh Pure Spices',
-    desc: "Premium spices sourced directly from Kerala's spice plantations.",
-    heroBg: 'banner-spice',
-    imgClass: 'img-spice',
-    items: [
-      { id:21, name:'Black Pepper', cat:'100g Pack', emoji:'🫙', price:299, orig:449, off:33, rating:4.9, reviews:215,
-        desc:"The 'King of Spices' — Kerala's prized Malabar black pepper. Sun-dried and naturally processed for maximum pungency and aroma. 100g premium grade.",
-        highlights:['100g Pack','Malabar Grade','Sun-Dried'] },
-      { id:22, name:'Cardamom',    cat:'50g Pack',  emoji:'🌿', price:399, orig:599, off:33, rating:4.9, reviews:187,
-        desc:"Premium green cardamom from the Idukki hills — the 'Queen of Spices'. Intensely aromatic with bold flavour. 50g whole pods.",
-        highlights:['50g Pack','Idukki Grown','Whole Pods'] },
-      { id:23, name:'Clove',       cat:'50g Pack',  emoji:'🌰', price:249, orig:379, off:34, rating:4.8, reviews:143,
-        desc:"Whole dried clove buds from Kerala's spice gardens. Rich in eugenol with warm, intense flavour. Used in cooking, chai, and Ayurvedic preparations.",
-        highlights:['50g Pack','Whole Buds','Aromatic'] },
-      { id:24, name:'Ginger',      cat:'100g Pack', emoji:'🫚', price:149, orig:229, off:35, rating:4.7, reviews:98,
-        desc:"Dried and ground Kerala ginger — the classic 'Chukku'. Sharp, warming flavour ideal for chai, cooking, and traditional Ayurvedic tonics.",
-        highlights:['100g Pack','Dried & Ground','Medicinal Grade'] },
-      { id:25, name:'Cinnamon',    cat:'50g Pack',  emoji:'🪵', price:199, orig:299, off:33, rating:4.8, reviews:121,
-        desc:"True Ceylon cinnamon (Cinnamomum verum) from Kerala. Delicate, sweet-spicy flavour with thin papery bark — far superior to cassia.",
-        highlights:['50g Pack','Ceylon Grade','Thin Bark'] },
-      { id:26, name:'Turmeric',    cat:'100g Pack', emoji:'🌕', price:129, orig:199, off:35, rating:4.8, reviews:204,
-        desc:"Organic ground turmeric with high curcumin content — Kerala's golden medicine. Used in cooking, skincare, and immunity boosters.",
-        highlights:['100g Pack','High Curcumin','Organic'] },
-    ]
-  },
-
-  herbal: {
-    label: 'Herbal Products',
-    sub: 'Natural & Certified Ayurvedic',
-    desc: "Certified natural and Ayurvedic products crafted with Kerala herbs.",
-    heroBg: 'banner-herb',
-    imgClass: 'img-herb',
-    items: [
-      { id:31, name:'Herbal Soaps',          cat:'Pack of 3',      emoji:'🧼', price:349, orig:499, off:30, rating:4.7, reviews:156,
-        desc:"Handmade Ayurvedic soap bars infused with neem, turmeric, and sandalwood. Cold-pressed and free from SLS, parabens, and artificial fragrances.",
-        highlights:['Pack of 3','SLS-Free','Handmade'] },
-      { id:32, name:'Hair Care Oil',         cat:'200ml Bottle',   emoji:'💆', price:299, orig:449, off:33, rating:4.8, reviews:134,
-        desc:"Traditional Kerala Brahmi-Amla hair oil. Strengthens roots, reduces hair fall, and promotes growth. Time-tested Ayurvedic formula.",
-        highlights:['200ml','Brahmi-Amla','No Mineral Oil'] },
-      { id:33, name:'Skin Care Cream',       cat:'50g Jar',        emoji:'🧴', price:249, orig:399, off:38, rating:4.6, reviews:89,
-        desc:"Neem and turmeric skin cream for clear, bright skin. Ayurvedic formula effective for acne, dark spots, and daily moisturising.",
-        highlights:['50g Jar','Neem-Turmeric','No Parabens'] },
-      { id:34, name:'Health Care Kit',       cat:'Immunity Combo', emoji:'💊', price:599, orig:899, off:33, rating:4.8, reviews:67,
-        desc:"Comprehensive Ayurvedic health kit with immunity-boosting formulations — Chyawanprash base, Ashwagandha tablets, and Giloy capsules.",
-        highlights:['3-Product Kit','Immunity Focus','Certified'] },
-      { id:35, name:'Ayurvedic Medicines',   cat:'Herbal Blend',   emoji:'🌿', price:449, orig:699, off:36, rating:4.7, reviews:52,
-        desc:"Classical Ayurvedic herbal formulation for digestive health and general wellbeing. Prepared by licensed Ayurvedic pharmacists.",
-        highlights:['GMP Certified','Classical Formula','No Side Effects'] },
-      { id:36, name:'Herbal Cosmetics',      cat:'Natural Range',  emoji:'💄', price:399, orig:599, off:33, rating:4.5, reviews:78,
-        desc:"Full herbal cosmetics range — lip balm, kajal, and face powder made from natural Kerala herbs. Safe for sensitive skin.",
-        highlights:['3-Piece Set','Herb-Based','Safe for All'] },
-      { id:37, name:'Food Products',         cat:'Organic Range',  emoji:'🫙', price:249, orig:379, off:34, rating:4.6, reviews:91,
-        desc:"Organic Kerala food products — coconut oil, curry leaves powder, and raw banana flour. No preservatives, no additives.",
-        highlights:['Organic','No Preservatives','Farm Direct'] },
-      { id:38, name:'Joint Pain Relief Oil', cat:'100ml Bottle',   emoji:'💧', price:549, orig:849, off:35, rating:4.9, reviews:203,
-        desc:"Murivenna — the legendary Kerala Ayurvedic joint pain oil. Used for centuries to relieve arthritis, muscle pain, and sports injuries. Clinically proven formula.",
-        highlights:['100ml','Murivenna Formula','Clinically Tested'] },
-    ]
-  }
-};
-
-const TESTIMONIALS = [
-  { name:'Priya M.',  location:'Kochi',     text:"The Bridal Saree is absolutely stunning. Perfect craftsmanship, just like my grandmother's." },
-  { name:'Rahul K.',  location:'Bangalore', text:"The black pepper and cardamom are so fresh. Nothing like what you get in supermarkets!" },
-  { name:'Anita S.',  location:'Mumbai',    text:"Joint Pain Relief Oil worked wonders for my mother. Reordering every month now." },
-];
-
-/* ══════════════════════════════════════════════════════════
-   STATE
-══════════════════════════════════════════════════════════ */
-let cart        = {};
-let curCategory = null;
-let curProduct  = null;
-let detailQty   = 1;
-let buyNowMode  = false;
-let filterActive = 'All';
-let wishlist    = new Set();
-
-/* ══════════════════════════════════════════════════════════
-   HELPERS
-══════════════════════════════════════════════════════════ */
-function findProduct(id) {
-  for (const cat of Object.values(PRODUCTS)) {
-    const p = cat.items.find(x => x.id === id);
-    if (p) return p;
-  }
-}
-
-function getCategoryForProduct(id) {
-  return Object.entries(PRODUCTS).find(([, cat]) => cat.items.some(p => p.id === id));
-}
-
-function stars(rating) {
-  return Array.from({ length: 5 }, (_, i) =>
-    `<span class="${i < Math.floor(rating) ? 'text-gold-400' : i < rating ? 'text-gold-200' : 'text-stone-200'}">★</span>`
-  ).join('');
-}
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.remove('opacity-0');
-  t.classList.add('opacity-100');
-  clearTimeout(window._toastTimer);
-  window._toastTimer = setTimeout(() => {
-    t.classList.remove('opacity-100');
-    t.classList.add('opacity-0');
-  }, 2400);
-}
-
-/* ══════════════════════════════════════════════════════════
-   PAGE NAVIGATION
-══════════════════════════════════════════════════════════ */
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  window.scrollTo(0, 0);
-  const isHome = id === 'home';
-  document.getElementById('homeBtn').classList.toggle('hidden', isHome);
-  document.getElementById('breadcrumb').classList.toggle('hidden', isHome);
-}
-
-function goHome() {
-  showPage('home');
-  ['bc-arrow1', 'bc-cat', 'bc-arrow2', 'bc-prod'].forEach(id =>
-    document.getElementById(id).classList.add('hidden')
-  );
-}
-
-function scrollToCats() {
-  document.getElementById('cat-section').scrollIntoView({ behavior: 'smooth' });
-}
-
-/* ══════════════════════════════════════════════════════════
-   CATEGORY PAGE
-══════════════════════════════════════════════════════════ */
-function showCategory(key) {
-  curCategory  = key;
-  filterActive = 'All';
-  const cat    = PRODUCTS[key];
-
-  // Hero banner
-  const heroBg = document.getElementById('cat-hero-inner');
-  heroBg.className = `absolute inset-0 flex flex-col justify-end p-5 ${cat.heroBg}`;
-  document.getElementById('cat-hero-sub').textContent   = cat.sub;
-  document.getElementById('cat-hero-title').textContent = cat.label;
-  document.getElementById('cat-hero-desc').textContent  = cat.desc;
-
-  // Breadcrumb
-  document.getElementById('bc-cat').textContent = cat.label;
-  document.getElementById('bc-cat').classList.remove('hidden');
-  document.getElementById('bc-arrow1').classList.remove('hidden');
-  document.getElementById('bc-arrow2').classList.add('hidden');
-  document.getElementById('bc-prod').classList.add('hidden');
-
-  // Filter chips
-  const cats   = ['All', ...new Set(cat.items.map(p => p.cat))];
-  const fc     = document.getElementById('filter-chips');
-  fc.innerHTML = cats.map(c => `
-    <button onclick="filterCategory('${c}')"
-      class="filter-chip ${c === 'All' ? 'active' : ''}">${c}</button>
-  `).join('');
-
-  renderProducts(cat.items);
-  showPage('category');
-}
-
-function filterCategory(chip) {
-  filterActive = chip;
-  document.querySelectorAll('.filter-chip').forEach(b => {
-    b.classList.toggle('active', b.textContent.trim() === chip);
-  });
-  const items = chip === 'All'
-    ? PRODUCTS[curCategory].items
-    : PRODUCTS[curCategory].items.filter(p => p.cat === chip);
-  renderProducts(items);
-}
-
-function sortProducts() {
-  const val   = document.getElementById('sort-select').value;
-  let items   = filterActive === 'All'
-    ? [...PRODUCTS[curCategory].items]
-    : PRODUCTS[curCategory].items.filter(p => p.cat === filterActive);
-  if (val === 'price-asc')  items.sort((a, b) => a.price - b.price);
-  if (val === 'price-desc') items.sort((a, b) => b.price - a.price);
-  renderProducts(items);
-}
-
-function renderProducts(items) {
-  const cat = PRODUCTS[curCategory];
-  document.getElementById('prod-count-label').textContent = `${items.length} product${items.length !== 1 ? 's' : ''}`;
-
-  document.getElementById('product-grid').innerHTML = items.map(p => `
-    <div onclick="showProduct(${p.id})"
-      class="bg-white rounded-2xl border border-stone-100 overflow-hidden cursor-pointer hover:shadow-md transition-all group animate-fade-in">
-      <div class="${p.img || cat.imgClass} prod-img-frame h-40 text-5xl relative">
-        ${p.emoji}
-        <div class="absolute top-2 right-2 bg-spice-500 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded-full">
-          ${p.off}% OFF
-        </div>
-      </div>
-      <div class="p-3">
-        <p class="text-[9px] text-stone-400 uppercase tracking-wider mb-0.5">${p.cat}</p>
-        <h3 class="font-display text-base font-semibold text-stone-900 leading-tight mb-1">${p.name}</h3>
-        <div class="flex items-center gap-0.5 mb-1.5">
-          ${stars(p.rating)}
-          <span class="text-[9px] text-stone-400 ml-1">(${p.reviews})</span>
-        </div>
-        <div class="flex items-baseline gap-1.5 mb-2">
-          <span class="font-display text-base font-bold text-stone-900">₹${p.price.toLocaleString()}</span>
-          <span class="text-xs text-stone-400 line-through">₹${p.orig.toLocaleString()}</span>
-        </div>
-        <button onclick="event.stopPropagation(); quickAddToCart(${p.id})"
-          id="quick-add-${p.id}"
-          class="w-full border border-stone-200 text-stone-600 text-[11px] font-medium py-2 rounded-lg
-                 hover:bg-stone-900 hover:text-white hover:border-stone-900 transition-all">
-          Add to Cart
-        </button>
-      </div>
-    </div>
-  `).join('');
-}
-
-/* ══════════════════════════════════════════════════════════
-   PRODUCT DETAIL PAGE
-══════════════════════════════════════════════════════════ */
-function showProduct(id) {
-  const p = findProduct(id);
-  curProduct = p;
-  detailQty  = 1;
-
-  const [, catData] = getCategoryForProduct(id);
-
-  // Image frame
-  const imgEl       = document.getElementById('prod-detail-img');
-  imgEl.className   = `w-full prod-img-frame ${catData.imgClass}`;
-  imgEl.style.height = '300px';
-  imgEl.textContent = p.emoji;
-
-  // Text content
-  document.getElementById('prod-detail-cat').textContent   = `${catData.label} · ${p.cat}`;
-  document.getElementById('prod-detail-name').textContent  = p.name;
-  document.getElementById('prod-detail-price').textContent = `₹${p.price.toLocaleString()}`;
-  document.getElementById('prod-detail-orig').textContent  = `₹${p.orig.toLocaleString()}`;
-  document.getElementById('prod-detail-off').textContent   = `${p.off}% OFF`;
-  document.getElementById('prod-detail-desc').textContent  = p.desc;
-  document.getElementById('detail-qty').textContent        = '1';
-  document.getElementById('prod-stars').innerHTML          = stars(p.rating);
-  document.getElementById('prod-reviews').textContent      = `${p.rating} · ${p.reviews} reviews`;
-
-  // Highlights
-  document.getElementById('prod-highlights').innerHTML = p.highlights.map(h => `
-    <div class="bg-stone-50 border border-stone-100 rounded-lg p-2.5 text-center">
-      <p class="text-[10px] text-stone-500 font-light leading-tight">${h}</p>
-    </div>
-  `).join('');
-
-  // Breadcrumb
-  document.getElementById('bc-cat').textContent = catData.label;
-  document.getElementById('bc-prod').textContent = p.name;
-  document.getElementById('bc-prod').classList.remove('hidden');
-  document.getElementById('bc-arrow2').classList.remove('hidden');
-
-  // Wishlist heart
-  document.getElementById('wish-btn').classList.toggle('text-red-400', wishlist.has(id));
-
-  showPage('product');
-}
-
-function changeDetailQty(delta) {
-  detailQty = Math.max(1, Math.min(10, detailQty + delta));
-  document.getElementById('detail-qty').textContent = detailQty;
-}
-
-function addToCartFromDetail() {
-  const p = curProduct;
-  cart[p.id] = cart[p.id]
-    ? { ...cart[p.id], qty: cart[p.id].qty + detailQty }
-    : { ...p, qty: detailQty };
-  updateCartBadge();
-
-  const btn = document.getElementById('add-to-cart-btn');
-  btn.textContent = '✓ Added to Cart';
-  btn.classList.add('bg-forest-600', 'text-white', 'border-forest-600');
-  setTimeout(() => {
-    btn.textContent = 'Add to Cart';
-    btn.classList.remove('bg-forest-600', 'text-white', 'border-forest-600');
-  }, 1600);
-
-  showToast(`${p.name} ×${detailQty} added to bag`);
-}
-
-function buyNowFromDetail() {
-  buyNowMode = true;
-  openCheckout({ [curProduct.id]: { ...curProduct, qty: detailQty } });
-}
-
-/* ══════════════════════════════════════════════════════════
-   WISHLIST
-══════════════════════════════════════════════════════════ */
-function toggleWishlistItem() {
-  if (!curProduct) return;
-  if (wishlist.has(curProduct.id)) {
-    wishlist.delete(curProduct.id);
-    showToast('Removed from wishlist');
-  } else {
-    wishlist.add(curProduct.id);
-    showToast('Added to wishlist ♥');
-  }
-  document.getElementById('wish-btn').classList.toggle('text-red-400', wishlist.has(curProduct.id));
-}
-
-function openWishlist() {
-  showToast(`${wishlist.size} item${wishlist.size !== 1 ? 's' : ''} in your wishlist`);
-}
-
-function openSearch() {
-  showToast('Search coming soon...');
-}
-
-/* ══════════════════════════════════════════════════════════
-   CART — quick add from grid
-══════════════════════════════════════════════════════════ */
-function quickAddToCart(id) {
-  const p = findProduct(id);
-  cart[id] = cart[id]
-    ? { ...cart[id], qty: cart[id].qty + 1 }
-    : { ...p, qty: 1 };
-  updateCartBadge();
-
-  const btn = document.getElementById('quick-add-' + id);
-  if (btn) {
-    btn.textContent = '✓ Added';
-    btn.classList.add('bg-stone-900', 'text-white');
-    setTimeout(() => {
-      btn.textContent = 'Add to Cart';
-      btn.classList.remove('bg-stone-900', 'text-white');
-    }, 1500);
-  }
-  showToast(`${p.name} added to bag`);
-}
-
-/* ══════════════════════════════════════════════════════════
-   CART SIDEBAR
-══════════════════════════════════════════════════════════ */
-function toggleCart() {
-  const panel   = document.getElementById('cart-panel');
-  const overlay = document.getElementById('cart-overlay');
-  const isOpen  = panel.classList.contains('translate-x-0');
-
-  if (!isOpen) renderCartPanel();
-
-  panel.classList.toggle('translate-x-0',   !isOpen);
-  panel.classList.toggle('translate-x-full', isOpen);
-  overlay.classList.toggle('opacity-0',           isOpen);
-  overlay.classList.toggle('pointer-events-none', isOpen);
-  overlay.classList.toggle('opacity-100',         !isOpen);
-  overlay.classList.toggle('pointer-events-auto', !isOpen);
-}
-
-function renderCartPanel() {
-  const items    = Object.values(cart);
-  const listEl   = document.getElementById('cart-items-list');
-  const footerEl = document.getElementById('cart-footer');
-
-  document.getElementById('cart-item-count').textContent =
-    `${items.length} item${items.length !== 1 ? 's' : ''}`;
-
-  if (!items.length) {
-    listEl.innerHTML  = `<div class="flex flex-col items-center justify-center h-40 text-stone-400">
-      <div class="text-4xl mb-3">🛍️</div>
-      <p class="text-sm font-light">Your bag is empty</p>
-    </div>`;
-    footerEl.innerHTML = '';
-    return;
-  }
-
-  listEl.innerHTML = items.map(i => {
-    const [, catData] = getCategoryForProduct(i.id) || [null, { imgClass: 'img-saree' }];
-    return `
-    <div class="flex gap-3 pb-3 border-b border-stone-100">
-      <div class="${catData.imgClass} prod-img-frame w-16 h-16 rounded-xl text-2xl flex-shrink-0">${i.emoji}</div>
-      <div class="flex-1 min-w-0">
-        <p class="text-sm font-medium text-stone-800 leading-tight truncate">${i.name}</p>
-        <p class="text-xs text-stone-400 font-light mb-1">₹${i.price.toLocaleString()} each</p>
-        <div class="flex items-center gap-2">
-          <button onclick="changeCartQty(${i.id}, -1)"
-            class="w-6 h-6 border border-stone-200 rounded-md text-stone-600 flex items-center justify-center text-sm hover:bg-stone-50">−</button>
-          <span class="text-sm font-medium w-5 text-center">${i.qty}</span>
-          <button onclick="changeCartQty(${i.id}, 1)"
-            class="w-6 h-6 border border-stone-200 rounded-md text-stone-600 flex items-center justify-center text-sm hover:bg-stone-50">+</button>
-        </div>
-      </div>
-      <div class="flex flex-col items-end justify-between">
-        <span class="font-display text-sm font-bold text-stone-900">₹${(i.price * i.qty).toLocaleString()}</span>
-        <button onclick="removeFromCart(${i.id})"
-          class="text-[10px] text-stone-400 hover:text-red-400 transition-colors">Remove</button>
-      </div>
-    </div>`;
-  }).join('');
-
-  const subtotal  = items.reduce((s, i) => s + i.price * i.qty, 0);
-  const shipping  = subtotal >= 999 ? 'FREE' : 99;
-  const grandTotal = subtotal + (shipping === 'FREE' ? 0 : shipping);
-
-  footerEl.innerHTML = `
-    <div class="space-y-1 mb-3">
-      <div class="flex justify-between text-xs text-stone-500">
-        <span>Subtotal</span><span>₹${subtotal.toLocaleString()}</span>
-      </div>
-      <div class="flex justify-between text-xs">
-        <span class="text-stone-500">Shipping</span>
-        <span class="${shipping === 'FREE' ? 'text-forest-600 font-medium' : 'text-stone-700'}">
-          ${shipping === 'FREE' ? 'FREE' : '₹' + shipping}
-        </span>
-      </div>
-      <div class="flex justify-between text-sm font-semibold text-stone-900 pt-2 border-t border-stone-100">
-        <span>Total</span><span>₹${grandTotal.toLocaleString()}</span>
-      </div>
-    </div>
-    <button onclick="toggleCart(); openCheckout(null)"
-      class="w-full bg-stone-900 hover:bg-stone-800 text-white py-3.5 rounded-xl text-sm font-medium tracking-wide transition-colors mb-2">
-      Proceed to Checkout
-    </button>
-    <button onclick="toggleCart()"
-      class="w-full border border-stone-200 text-stone-600 py-3 rounded-xl text-xs font-medium hover:bg-stone-50 transition-colors">
-      Continue Shopping
-    </button>`;
-}
-
-function changeCartQty(id, delta) {
-  if (!cart[id]) return;
-  cart[id].qty += delta;
-  if (cart[id].qty <= 0) delete cart[id];
-  updateCartBadge();
-  renderCartPanel();
-}
-
-function removeFromCart(id) {
-  delete cart[id];
-  updateCartBadge();
-  renderCartPanel();
-}
-
-function updateCartBadge() {
-  const total = Object.values(cart).reduce((s, i) => s + i.qty, 0);
-  const badge = document.getElementById('cart-badge');
-  badge.classList.toggle('hidden', total === 0);
-  if (total > 0) {
-    badge.textContent = total;
-    badge.classList.add('pulse');
-    setTimeout(() => badge.classList.remove('pulse'), 400);
-  }
-}
-
-/* ══════════════════════════════════════════════════════════
-   CHECKOUT PAGE
-══════════════════════════════════════════════════════════ */
-function openCheckout(tempItems) {
-  const items    = tempItems ? Object.values(tempItems) : Object.values(cart);
-  const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
-  const shipping = subtotal >= 999 ? 'FREE' : 99;
-  const total    = subtotal + (shipping === 'FREE' ? 0 : shipping);
-
-  document.getElementById('checkout-items').innerHTML = items.map(i => `
-    <div class="flex justify-between text-xs text-stone-600">
-      <span class="truncate pr-2">${i.emoji} ${i.name} ×${i.qty}</span>
-      <span class="flex-shrink-0 font-medium">₹${(i.price * i.qty).toLocaleString()}</span>
-    </div>
-  `).join('');
-
-  document.getElementById('co-subtotal').textContent = `₹${subtotal.toLocaleString()}`;
-  document.getElementById('co-shipping').textContent = shipping === 'FREE' ? 'FREE' : `₹${shipping}`;
-  document.getElementById('co-total').textContent    = `₹${total.toLocaleString()}`;
-
-  showPage('checkout');
-}
-
-/* ══════════════════════════════════════════════════════════
-   PAYMENT GATEWAY UI
-══════════════════════════════════════════════════════════ */
-function switchPayTab(id, btn) {
-  // Reset all tabs
-  document.querySelectorAll('.pay-tab').forEach(t => {
-    t.className = 'pay-tab flex-1 py-2 text-[11px] font-medium rounded-lg border transition-all bg-white text-stone-500 border-stone-200';
-  });
-  // Activate selected tab
-  btn.className = 'pay-tab flex-1 py-2 text-[11px] font-medium rounded-lg border transition-all bg-stone-900 text-white border-stone-900';
-  // Show/hide panels
-  ['upi', 'card', 'netbank', 'cod'].forEach(p => {
-    document.getElementById('panel-' + p).classList.toggle('hidden', p !== id);
-  });
-}
-
-function selUpi(el) {
-  document.querySelectorAll('.upi-app').forEach(a => {
-    a.classList.remove('border-forest-500', 'bg-forest-50');
-    a.classList.add('border-stone-200');
-  });
-  el.classList.remove('border-stone-200');
-  el.classList.add('border-forest-500', 'bg-forest-50');
-}
-
-function confirmOrder() {
-  const orderId = 'ORD-KO-' + Math.floor(100000 + Math.random() * 900000);
-  document.getElementById('success-order-id').textContent = orderId;
-  if (!buyNowMode) { cart = {}; updateCartBadge(); }
-  buyNowMode = false;
-  showPage('success');
-}
-
-/* ══════════════════════════════════════════════════════════
-   DOM-READY INIT
-══════════════════════════════════════════════════════════ */
-document.addEventListener('DOMContentLoaded', () => {
-
-  // Activate first payment tab style
-  const firstTab = document.querySelector('.pay-tab');
-  if (firstTab) {
-    firstTab.className = 'pay-tab flex-1 py-2 text-[11px] font-medium rounded-lg border transition-all bg-stone-900 text-white border-stone-900';
-  }
-
-  // Render testimonials
-  const testimonialsEl = document.getElementById('testimonials-home');
-  if (testimonialsEl) {
-    testimonialsEl.innerHTML = TESTIMONIALS.map(t => `
-      <div class="border-t border-stone-700 pt-3 first:border-0 first:pt-0">
-        <p class="font-display text-sm italic text-stone-300 mb-1.5">"${t.text}"</p>
-        <p class="text-[10px] text-gold-300">— ${t.name}, ${t.location}</p>
-      </div>
-    `).join('');
-  }
-});
-
-  </script>
-
-
+    <script>
+        function showPage(pageId) {
+            // 1. Hide all sections
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(p => p.classList.remove('active'));
+
+            // 2. Show the target section
+            document.getElementById(pageId).classList.add('active');
+
+            // 3. Update the active state of navigation buttons
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(nav => nav.classList.remove('active'));
+            
+            // Find the button clicked and add active class
+            if(pageId === 'home') document.getElementById('btn-home').classList.add('active');
+            if(pageId === 'gallery') document.getElementById('btn-gallery').classList.add('active');
+            if(pageId === 'letter') document.getElementById('btn-letter').classList.add('active');
+            
+            // Scroll to top when switching pages
+            window.scrollTo(0,0);
+        }
+    </script>
 </body>
 </html>
